@@ -7,6 +7,9 @@
 
 """Launch Isaac Sim Simulator first."""
 
+from leapfeels.envs.agents import *
+from leapfeels.envs import *
+
 import argparse
 import sys
 

@@ -5,7 +5,7 @@
 
 from isaaclab.utils import configclass
 
-import isaaclab_tasks.manager_based.manipulation.inhand.inhand_env_cfg as inhand_env_cfg
+import leapfeels.envs.inhand_env_cfg as inhand_env_cfg
 
 ##
 # Pre-defined configs
