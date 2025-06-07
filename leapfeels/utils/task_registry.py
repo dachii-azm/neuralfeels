@@ -13,10 +13,6 @@ from typing import TYPE_CHECKING
 
 from rsl_rl.env import VecEnv
 
-if TYPE_CHECKING:
-    from legged_lab.envs.base.base_env import BaseEnvConfig
-    from legged_lab.envs.base.base_env_config import BaseAgentConfig
-
 
 class TaskRegistry:
     def __init__(self):
@@ -32,7 +28,7 @@ class TaskRegistry:
     def get_task_class(self, name: str) -> VecEnv:
         return self.task_classes[name]
 
-    def get_cfgs(self, name) -> tuple["BaseEnvConfig", "BaseAgentConfig"]:
+    def get_cfgs(self, name):
         train_cfg = self.train_cfgs[name]
         env_cfg = self.env_cfgs[name]
         return env_cfg, train_cfg

@@ -10,7 +10,7 @@ import isaaclab_tasks.manager_based.manipulation.inhand.inhand_env_cfg as inhand
 ##
 # Pre-defined configs
 ##
-from leapfeels.assets.leap_hand.leap_hand import LEAP_HAND_CFG  # isort: skip
+from leapfeels.assets.leap_hand.leaphand import LEAP_HAND_CFG  # isort: skip
 
 
 @configclass
