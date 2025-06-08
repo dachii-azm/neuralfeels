@@ -45,9 +45,9 @@ log_to_sheet: True
 sheet_name: "leap-hand-manip"
 creds_path: "~/creds.json"
 
-wandb_activate: True
+wandb_activate: False
 wandb_group: ''
-wandb_entity: "wandb_username"
+wandb_entity: "dachii"
 wandb_project: 'leap_sim'
 capture_video: False
 capture_video_freq: 183
