@@ -5,6 +5,7 @@ params:
   env:
     clip_observations: 5.0
     clip_actions: 1.0
+    #observation_spaces: 102
 
   algo:
     name: a2c_continuous
@@ -36,6 +37,14 @@ params:
         name: default
       regularizer:
         name: None
+      
+    rnn:
+      name: gru
+      units: 256
+      layers: 1
+      before_mlp: true
+      concat_input: true
+      layer_norm: true
 
   load_checkpoint: False
   load_path: ''

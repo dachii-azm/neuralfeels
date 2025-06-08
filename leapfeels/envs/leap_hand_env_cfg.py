@@ -21,6 +21,7 @@ class LeapHandCubeEnvCfg(inhand_env_cfg.InHandObjectEnvCfg):
 
         # switch robot to leap hand
         self.scene.robot = LEAP_HAND_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
+        #self.scene.single_observation_space = 102
 
 
 @configclass

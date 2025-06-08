@@ -14,6 +14,9 @@ import argparse
 import sys
 
 from isaaclab.app import AppLauncher
+from rl_games.algos_torch import model_builder
+
+from leapfeels.learning import amp_continuous, amp_players, amp_models, amp_network_builder
 
 # add argparse arguments
 parser = argparse.ArgumentParser(description="Train an RL agent with RL-Games.")
@@ -78,6 +81,7 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
     """Train with RL-Games agent."""
     # override configurations with non-hydra CLI arguments
     env_cfg.scene.num_envs = args_cli.num_envs if args_cli.num_envs is not None else env_cfg.scene.num_envs
+    #env_cfg.scene.num_observations = 102
     env_cfg.sim.device = args_cli.device if args_cli.device is not None else env_cfg.sim.device
 
     # randomly sample a seed if seed = -1
@@ -161,8 +165,18 @@ def main(env_cfg: ManagerBasedRLEnvCfg | DirectRLEnvCfg | DirectMARLEnvCfg, agen
 
     # set number of actors into agent config
     agent_cfg["params"]["config"]["num_actors"] = env.unwrapped.num_envs
+    
+    def build_runner(algo_observer):
+        runner = Runner(algo_observer)
+        runner.algo_factory.register_builder('amp_continuous', lambda **kwargs : amp_continuous.AMPAgent(**kwargs))
+        runner.player_factory.register_builder('amp_continuous', lambda **kwargs : amp_players.AMPPlayerContinuous(**kwargs))
+        model_builder.register_model('continuous_amp', lambda network, **kwargs : amp_models.ModelAMPContinuous(network))
+        model_builder.register_network('amp', lambda **kwargs : amp_network_builder.AMPBuilder())
+        return runner
+    
     # create runner from rl-games
-    runner = Runner(IsaacAlgoObserver())
+    #runner = Runner(IsaacAlgoObserver())
+    runner = build_runner(IsaacAlgoObserver())
     runner.load(agent_cfg)
 
     # reset the agent and env
