@@ -123,7 +123,8 @@ env:
   real_to_sim_indices: [1, 0, 2, 3, 12, 13, 14, 15, 5, 4, 6, 7, 9, 8, 10, 11]
 
   asset:
-    handAsset: 'assets/leap_hand/robot.urdf'
+    #handAsset: 'assets/leap_hand/robot.urdf'
+    handAsset: 'assets/leap_hand/digit_leap.urdf'
     # handAsset: 'assets/leap/leap.urdf'
     # handAsset: 'assets/leap_hand/wider_hand_export/robot.urdf'
     # handAsset: 'assets/leap_hand/wider_hand_export/robot_modified.urdf'
