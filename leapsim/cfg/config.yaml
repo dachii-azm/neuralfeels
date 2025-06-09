@@ -5,7 +5,7 @@ task_name: ${task.name}
 experiment: ''
 
 # if set to positive integer, overrides the default number of environments
-num_envs: ''
+num_envs: 512
 
 # seed - set to -1 to choose random seed
 seed: 42
@@ -45,7 +45,7 @@ log_to_sheet: True
 sheet_name: "leap-hand-manip"
 creds_path: "~/creds.json"
 
-wandb_activate: False
+wandb_activate: True
 wandb_group: ''
 wandb_entity: "dachii"
 wandb_project: 'leap_sim'

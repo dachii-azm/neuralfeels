@@ -17,5 +17,5 @@ EXTRA_ARGS=${array[@]:2:$len}
 EXTRA_ARGS_SLUG=${EXTRA_ARGS// /_}
 
 python3 train.py task=LeapHandGrasp task.env.baseObjScale=$SCALE \
-task.env.grasp_cache_name=$GRASP_CACHE test=true pipeline=cpu test=true train.params.config.player.games_num=100 task.env.episodeLength=50 headless=false \
+task.env.grasp_cache_name=$GRASP_CACHE test=true pipeline=cpu test=true train.params.config.player.games_num=10000000000000000 task.env.episodeLength=50 headless=true \
 ${EXTRA_ARGS}

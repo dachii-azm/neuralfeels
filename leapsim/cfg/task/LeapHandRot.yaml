@@ -51,7 +51,7 @@ env:
   reward:
     angvelClipMin: -0.25
     angvelClipMax: 0.25
-    rotateRewardScale: 0.0
+    rotateRewardScale: 1.0
     objLinvelPenaltyScale: -0.3
     poseDiffPenaltyScale: -0.1
     torquePenaltyScale: -0.1
