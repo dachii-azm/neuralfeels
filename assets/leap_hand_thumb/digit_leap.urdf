@@ -91,6 +91,29 @@
 </inertial>
 </link>
 
+<link name="jig_finger">
+<visual>
+<origin xyz="0 0.014 0" rpy="0 0 0"/>
+<geometry>
+<mesh filename="JIG_finger.stl" scale="0.001 0.001 0.001"/>
+</geometry>
+<material name="jig_finger_material">
+<color rgba="0.16666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0.014 0" rpy="0 0 0"/>
+<geometry>
+<mesh filename="JIG_finger.stl" scale="0.001 0.001 0.001"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0.016" />
+<!--inertia ixx="0.000003368" ixy="0.000000115"  ixz="0" iyy="0.000001556" iyz="0" izz="0.000002863" /-->
+</inertial>
+</link>
+
 <link name="fingertip">
 <visual>
 <!--origin xyz="0.013286424108533503169 -0.0061142383865419869249 0.014499999999999497666" rpy="1.57079632679 3.14159265359 4.4395481053923607589e-32" /-->
@@ -140,12 +163,21 @@
 <joint_properties friction="0.0"/>
 </joint>
 
+<joint name="18" type="revolute">
+<origin xyz="0 -0.036 0.015" rpy="0 0 -3.14159265359" />
+<parent link="dip" />
+<child link="jig_finger" />
+<axis xyz="0 0 1"/>
+<limit effort="0.95" velocity="8.48" lower = "-0.506" upper = "1.885"/>  
+<joint_properties friction="0.0"/>
+</joint>
+
 <joint name="3" type="revolute">
 <!--origin xyz="-4.0880582495572692636e-09 -0.036100004210367367397 0.00020000000000007858714" rpy="4.5935029425113685044e-17 -2.8730071914463794583e-16 4.4395481053923607589e-32" /-->
-<origin xyz="0.00628642410853349623 -0.041142383865420008027 0.014499999999999495931" rpy="1.57079632679 3.14159265359 1.4408183216511868558e-31" />
-<parent link="dip" />
+<origin xyz="-0.00028642410853349623 0.0161142383865420008027 -0.0010499999999999495931" rpy="1.57079632679 3.14159265359 3.1415926535" />
+<parent link="jig_finger" />
 <child link="fingertip" />
-<axis xyz="0 1 0"/>
+<axis xyz="0 0 0"/>
 <limit effort="0.95" velocity="8.48" lower = "-0.366" upper = "2.042"/>   
 <joint_properties friction="0.0"/>
 </joint>
@@ -242,6 +274,29 @@
 </inertial>
 </link>
 
+<link name="jig_finger_2">
+<visual>
+<origin xyz="0 0.014 0" rpy="0 0 0"/>
+<geometry>
+<mesh filename="JIG_finger.stl" scale="0.001 0.001 0.001"/>
+</geometry>
+<material name="jig_finger_material">
+<color rgba="0.16666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0.014 0" rpy="0 0 0"/>
+<geometry>
+<mesh filename="JIG_finger.stl" scale="0.001 0.001 0.001"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0.016" />
+<!--inertia ixx="0.000003368" ixy="0.000000115"  ixz="0" iyy="0.000001556" iyz="0" izz="0.000002863" /-->
+</inertial>
+</link>
+
 <joint name="4" type="revolute">
 <origin xyz="-0.012200000000000019856 0.038099999999999981104 0.01450000000000000594" rpy="-1.570796326794896558 -1.0065212760057939085e-15 1.5707963267948943376" />
 <parent link="mcp_joint_2" />
@@ -269,12 +324,21 @@
 <joint_properties friction="0.0"/>
 </joint>
 
+<joint name="17" type="revolute">
+<origin xyz="0 -0.036 0.015" rpy="0 0 -3.14159265359" />
+<parent link="dip_2" />
+<child link="jig_finger_2" />
+<axis xyz="0 0 1"/>
+<limit effort="0.95" velocity="8.48" lower = "-0.506" upper = "1.885"/>  
+<joint_properties friction="0.0"/>
+</joint>
+
 <joint name="7" type="revolute">
 <!--origin xyz="1.0061396160665481148e-16 -0.036099999999999854428 0.00020000000000007858714" rpy="4.5935029425113654229e-17 -2.8730071914463794583e-16 1.4408183216511868558e-31" /-->
-<origin xyz="0.00628642410853349623 -0.041142383865420008027 0.014499999999999495931" rpy="1.57079632679 3.14159265359 1.4408183216511868558e-31" />
-<parent link="dip_2" />
+<origin xyz="-0.00028642410853349623 0.0161142383865420008027 -0.0010499999999999495931" rpy="1.57079632679 3.14159265359 3.14159265359" />
+<parent link="jig_finger_2" />
 <child link="fingertip_2" />
-<axis xyz="0 1 0"/>
+<axis xyz="0 0 0"/>
 <limit effort="0.95" velocity="8.48" lower = "-0.366" upper = "2.042"/>   
 <joint_properties friction="0.0"/>
 </joint>
@@ -371,6 +435,29 @@
 </inertial>
 </link>
 
+<link name="jig_finger_3">
+<visual>
+<origin xyz="0 0.014 0" rpy="0 0 0"/>
+<geometry>
+<mesh filename="JIG_finger.stl" scale="0.001 0.001 0.001"/>
+</geometry>
+<material name="jig_finger_material">
+<color rgba="0.16666666666666669627 0.86666666666666669627 0.050980392156862744391 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0.014 0" rpy="0 0 0"/>
+<geometry>
+<mesh filename="JIG_finger.stl" scale="0.001 0.001 0.001"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0.016" />
+<!--inertia ixx="0.000003368" ixy="0.000000115"  ixz="0" iyy="0.000001556" iyz="0" izz="0.000002863" /-->
+</inertial>
+</link>
+
 <joint name="8" type="revolute">
 <origin xyz="-0.012200000000000004244 0.038100000000000001921 0.014499999999999999001" rpy="-1.570796326794896558 -1.0065212660796360242e-15 1.5707963267948943376" />
 <parent link="mcp_joint_3" />
@@ -398,12 +485,21 @@
 <joint_properties friction="0.0"/>
 </joint>
 
+<joint name="16" type="revolute">
+<origin xyz="0 -0.036 0.015" rpy="0 0 -3.14159265359" />
+<parent link="dip_3" />
+<child link="jig_finger_3" />
+<axis xyz="0 0 -1"/>
+<limit effort="0.95" velocity="8.48" lower = "-0.506" upper = "1.885"/>  
+<joint_properties friction="0.0"/>
+</joint>
+
 <joint name="11" type="revolute">
 <!--origin xyz="9.7144514654701197287e-17 -0.036099999999999868305 0.00020000000000007511769" rpy="4.5935029425113685044e-17 -2.8730071914463799514e-16 1.5565411607615035382e-32" /-->
-<origin xyz="0.00628642410853349623 -0.041142383865420008027 0.014499999999999495931" rpy="1.57079632679 3.14159265359 1.4408183216511868558e-31" />
-<parent link="dip_3" />
+<origin xyz="-0.00028642410853349623 0.0161142383865420008027 -0.0010499999999999495931" rpy="1.57079632679 3.14159265359 3.14159265359" />
+<parent link="jig_finger_3" />
 <child link="fingertip_3" />
-<axis xyz="0 1 0"/>
+<axis xyz="0 0 0"/>
 <limit effort="0.95" velocity="8.48" lower = "-0.366" upper = "2.042"/>   
 <joint_properties friction="0.0"/>
 </joint>
